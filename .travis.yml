@@ -1,14 +1,21 @@
-sudo: false 
-language: node_js 
-node_js: '5' 
+sudo: false
+language: node_js
+node_js: '5'
 addons:
- postgresql: '9.4' 
+  postgresql: '9.4'
 before_script:
-  - bash install.sh 
+- bash install.sh
 script:
-  - source env.sh && npm run test 
+- source env.sh && npm run test
 notifications:
- slack:
-  rooms:
+  slack:
+    rooms:
     - devops-training-spb:ghCDDrXUQtIIfvqyRBHpx0ga#general
     - devops-training-spb:ghCDDrXUQtIIfvqyRBHpx0ga#random
+deploy:
+  provider: heroku
+  api_key:
+    secure: raK9H3cFDpX5dfocc45P7EDH0ALFqfZYGMGc2ZAsX6PcbbqR9V4KWvhb8B7h4UJqhraPEjzAdgQYsRkmVBR4iqeBVQMcO2/dfynFhjG8CNsXe5XnOP1vtSgWkkMb/4vlGt7ZQI/6qPctA+JL+BgyNze8d9I9W6kWR6bEkHsqI3R7DD7eExysdt7ERKA25PRDThRl2JI1mOvG+W9v/rPM6Cxn3vCPMQmaH7guH9TKoJ37M/vmSGHP+nRL//MqPCJjaw6ITZvQZ5PMMZqpRYg/4eOQipmUSHAeIy8KKjk4laSt3JRrCPlNCuDU+YOOJdQf9VPzuwfsHrpWf3yWdurEeTQHib3PnYpSjAVVQVZ00+z/p8diRcO/lenlsQsaDOZl7ZNNLO0dQ530+cNRQgMNcC7On8UkUtajJ5/ZSbjg2m1FCqFZqx54RUa+2VsnmQlDeMijADslO1SZ4OMIPRetewc50kIB7SaesdZoOar/FKmOUKA0ihLbNFKzwqdlfzTRM3j/TTPSSipYvt/fHOD1Gn0Ydv8zgGfSh32gBT9QR9c+vKarN2cYx83GbiuG8VVBWAfXsIrK3Oh4JBI+p/qYTf6CSDdQW7GCInVAmtZ8wqzpFRScafGaHMLTwdHkXQA4TMvhHfbNQt6o12UYgO+VvGzfzhLvHa3fr/M/GEuamrI=
+  app: agile-depths-28776
+  on:
+    repo: truenim/delivery-pipeline-training
