@@ -1,7 +1,12 @@
-notifications:
-  slack:
-    rooms:
-      - devops-training-spb:ghCDDrXUQtIIfvqyRBHpx0ga#general
-      - devops-training-spb:ghCDDrXUQtIIfvqyRBHpx0ga#null 
-language: node_js node_js:
-  - "5"
+sudo: false 
+language: node_js 
+ node_js: '5' 
+addons:
+ postgresql: '9.4' 
+before_script:
+  - bash install.sh script:
+  - source env.sh && npm run test notifications:
+slack:
+ rooms:
+   - devops-training-spb:ghCDDrXUQtIIfvqyRBHpx0ga#general
+   - devops-training-spb:ghCDDrXUQtIIfvqyRBHpx0ga#random
