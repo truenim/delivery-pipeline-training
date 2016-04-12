@@ -1,2 +1,5 @@
 notifications:
-  slack: devops-training-spb:ghCDDrXUQtIIfvqyRBHpx0ga
+  slack:
+    rooms:
+      - devops-training-spb:ghCDDrXUQtIIfvqyRBHpx0ga#general
+      - devops-training-spb:ghCDDrXUQtIIfvqyRBHpx0ga#null
